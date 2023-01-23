@@ -88,8 +88,6 @@ def tampilkan_barang():
 
 # menu
 def menu():
-    import os
-    os.system("CLS")
     print('-'*44)
     print("PROGRAM BARANG".center(44,'='))
     print('-'*44)
@@ -104,7 +102,7 @@ def menu():
     if pilihan == "1" or pilihan == "TAMBAH BARANG":
         tambah()
     elif pilihan == "2" or pilihan == "HAPUS BARANG":
-            hapus_barang()
+        hapus_barang()
     elif pilihan == "3" or pilihan == "EDIT BARANG":
         edit_barang()
     elif pilihan == "4" or pilihan == "CEK BARANG":
