@@ -1,5 +1,3 @@
-tampungan_sepatu = []
-
 # Garis
 def garis():
     print('-'*44)
@@ -91,8 +89,6 @@ def tampilkan_barang():
 
 # menu
 def menu():
-    A = True
-    while A == True :
         print('-'*44)
         print("PROGRAM BARANG".center(44,'='))
         print('-'*44)
