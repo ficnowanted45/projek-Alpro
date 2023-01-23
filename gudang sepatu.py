@@ -1,31 +1,28 @@
-tampungan_sepatu = []
-
 # Garis
 def garis():
     print('-'*44)
 
 # Tambah barang
 def tambah():
-    
+    import os
+    os.system("CLS")
     print(' TAMBAH BARANG '.center(44,'='))
     garis()
-    while True :
-        sepatu = input('Masukkan nama sepatu :')
-        if sepatu in tampungan_sepatu:
-            print('Barang sudah tersedia')
-            pass
-        elif sepatu not in tampungan_sepatu:
-            tampungan_sepatu.append(sepatu)
-            pilihan = input("Tambahkan barang lagi? (y/n) : ")
-            garis()
-            print("LIST BARANG".center(44,'='))
-            garis()
-            if pilihan == 'y' :
-                print("|","Kode".center(12, ' '),"|", "Nama Barang".center(15, ' '),"|","\n")
-                for i in tampungan_sepatu :
-                    print("+     ",(tampungan_sepatu.index(i)+1) ,"      |", (i).center(16, ' '),"+")        
-            else : 
-                break
+    sepatu = input("Masukkan Nama Barang :")
+    ukuran = input("Masukkan Ukuran :")
+    stok = input("Masukkan Jumlah Stok :")
+    data = open("datasepatu.txt","a")
+    data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
+    print("\n[Barang Berhasil Ditambahkan]")
+    data.close()
+    print("\nIngin Menambahkan barang Lagi? (Ya/Tidak)", end="")
+    tmbhbarang = input(":")
+    if tmbhbarang == "y" or tmbhbarang == "Y":
+        tambahbarang()
+    else :
+        print("\nTekan [Enter] untuk kembali ke menu.")
+        input()
+        menu()
                         
 # Menghapus barang
 def hapus_barang():
@@ -91,41 +88,30 @@ def tampilkan_barang():
 
 # menu
 def menu():
-    A = True
-    while A == True :
-        print('-'*44)
-        print("PROGRAM BARANG".center(44,'='))
-        print('-'*44)
-        print("|",'1. Tambah Barang'.center(40, ' '),"|")
-        print("|",'2. Hapus Barang'.center(40, ' '),"|")
-        print("|",'3. Edit Barang'.center(40, ' '),"|")
-        print("|",'4. Cek Barang'.center(40, ' '),"|")
-        print("|",'5. Keluar'.center(40, ' '),"|\n")
-        print('-'*44)
-        pilihan = input("Pilih menu \t: ").upper()
-        print('-'*44)
-        if pilihan == "1" or pilihan == "TAMBAH BARANG":
-            tambah()
-        elif pilihan == "2" or pilihan == "HAPUS BARANG":
+    import os
+    os.system("CLS")
+    print('-'*44)
+    print("PROGRAM BARANG".center(44,'='))
+    print('-'*44)
+    print("|",'1. Tambah Barang'.center(40, ' '),"|")
+    print("|",'2. Hapus Barang'.center(40, ' '),"|")
+    print("|",'3. Edit Barang'.center(40, ' '),"|")
+    print("|",'4. Cek Barang'.center(40, ' '),"|")
+    print("|",'5. Keluar'.center(40, ' '),"|\n")
+    print('-'*44)
+    pilihan = input("Pilih menu \t: ").upper()
+    print('-'*44)
+    if pilihan == "1" or pilihan == "TAMBAH BARANG":
+        tambah()
+    elif pilihan == "2" or pilihan == "HAPUS BARANG":
             hapus_barang()
-        elif pilihan == "3" or pilihan == "EDIT BARANG":
-            edit_barang()
-        elif pilihan == "4" or pilihan == "CEK BARANG":
-            tampilkan_barang()
-        elif pilihan == '6':
-            garis()
-            print(' TERIMAKASIH '.center(44,"+"))
-            garis()
-            A = False
-            exit = input('Enter untuk keluar : ')
-            if exit == ' ':
-                break
-            else :
-                break
-        else :
-            garis()
-            print(' TERIMAKASIH '.center(44,"+"))
-            garis()
-            break
-       
+    elif pilihan == "3" or pilihan == "EDIT BARANG":
+        edit_barang()
+    elif pilihan == "4" or pilihan == "CEK BARANG":
+        tampilkan_barang()
+    elif pilihan == '5':
+        garis()
+        print(' TERIMAKASIH '.center(44,"+"))
+        garis()
+            
 menu()
