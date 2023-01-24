@@ -1,3 +1,4 @@
+tampungan_sepatu = []
 # Garis
 def garis():
     print('-'*44)
@@ -18,7 +19,7 @@ def tambah():
     print("\nIngin Menambahkan barang Lagi? (Ya/Tidak)", end="")
     tmbhbarang = input(":")
     if tmbhbarang == "y" or tmbhbarang == "Y":
-        tambahbarang()
+        ()
     else :
         print("\nTekan [Enter] untuk kembali ke menu.")
         input()
@@ -31,8 +32,8 @@ def hapus_barang():
     garis()    
     while True :
         hapus = input('Masukkan nama sepatu yang akan dihapus : ')
-        if hapus in tampungan_sepatu :
-            tampungan_sepatu.remove(hapus)
+        if hapus in "":
+            ().remove(hapus)
             lanjut = input('tekan y jika lanjut : ').upper()
             if lanjut == "Y" :
                 pass
@@ -48,14 +49,14 @@ def edit_barang() :
     garis()
     print("LIST BARANG".center(44,'='))
     garis()
-    for i in tampungan_sepatu :
+    for i in "" :
         print("+ Kode Barang ",(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
     while True :
         print('MENU EDIT BARANG'.center(44,'='))
         caribarang = str(input('Masukkan nama barang yang mau di edit : '))
         if caribarang in tampungan_sepatu :
             ubah_ke = input('Ubah ke : ')
-            tampungan_sepatu[tampungan_sepatu.index(caribarang)] = ubah_ke
+            (indexcaribarang) = ubah_ke
             for i in tampungan_sepatu :
                 print("+ Kode Barang ".center(28," "),(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
             print("\n",'-'*50)
@@ -85,7 +86,20 @@ def tampilkan_barang():
         menu()
     else :
         menu()
-
+# cek barang
+def cek_barang():
+    while True :
+        print('MENU CEK BARANG'.center(44,'='))
+        cek = input('Nama barang  : ')
+        if cek in tampungan_sepatu :
+            print(cek,'Tersedia!')
+        else :
+            print(cek,'Tidak tersedia!')
+        lanjut = input('Cek lagi? (y/n) :')
+        if lanjut == 'y' :
+            pass
+        else :
+            break
 # menu
 def menu():
     print('-'*44)
@@ -95,7 +109,8 @@ def menu():
     print("|",'2. Hapus Barang'.center(40, ' '),"|")
     print("|",'3. Edit Barang'.center(40, ' '),"|")
     print("|",'4. Cek Barang'.center(40, ' '),"|")
-    print("|",'5. Keluar'.center(40, ' '),"|\n")
+    print("|",'5. Cek nama barang'.center(40, ' '),"|")
+    print("|",'6. Keluar'.center(40, ' '),"|\n")
     print('-'*44)
     pilihan = input("Pilih menu \t: ").upper()
     print('-'*44)
@@ -107,7 +122,9 @@ def menu():
         edit_barang()
     elif pilihan == "4" or pilihan == "CEK BARANG":
         tampilkan_barang()
-    elif pilihan == '5':
+    elif pilihan == "5" or pilihan == "CEK BARANG":
+        cek_barang()
+    elif pilihan == '6':
         garis()
         print(' TERIMAKASIH '.center(44,"+"))
         garis()
