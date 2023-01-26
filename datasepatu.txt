@@ -1,2 +1,3 @@
 Nike Airjordan,ukuran 44,stok 5
-Nike AirForce, ukuran 43,stok 2
+Nike AirForce, ukuran 43,stok 2Vans,41,3
+Vans,41,2/nVans,40,5/nVans,30,4/nVans,43,5/nVans,43,4/n

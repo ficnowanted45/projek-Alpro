@@ -9,30 +9,24 @@ def tambah():
     import os
     os.system("CLS")
     print(' TAMBAH BARANG '.center(44,'='))
-    garis()
-    while True:
-        sepatu = input("Masukkan Nama Barang :")
-        ukuran = input("Masukkan Ukuran :")
-        stok = input("Masukkan Jumlah Stok :")
-        data = open("datasepatu.txt","a")
-        data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
-        if sepatu in tampungan_sepatu:
-            print('Barang Berhasil Ditambahkan')
-            pass
-        elif sepatu not in tampungan_sepatu:
-            tampungan_sepatu.append(sepatu)
-            pilihan = input("Ingin Menambahkan barang Lagi? (Ya/Tidak) : ")
-            garis()
-            print("LIST BARANG".center(44,'='))
-            garis()
-            if pilihan == 'Y' :    
-                print("|","Kode".center(12, ' '),"|", "Nama Barang".center(15, ' '),"|", "Ukuran".center(15, ' '),"|", "Jumlah Stok".center(15, ' '),"|","\n")
-                for i in tampungan_sepatu: ""
-                print("+     ",(tampungan_sepatu.index(i)+1) ,"      |", (i).center(16, ' '),"+")  
-            else : 
-                print("\nTekan [Enter] untuk kembali ke menu.")
-                menu()
-                break
+    print("Masukkan data sepatu baru")
+    sepatu = input("Masukkan Nama Sepatu : ")
+    ukuran = input("Masukkan Ukuran : ")
+    stok = input("Masukkan Jumlah Stok : ")
+    data = open("datasepatu.txt","a")
+    data.writelines([sepatu+","+ukuran+","+stok+ "/n"])
+    print("[Data Sepatu Berhasil Ditambahkan]")
+    data.close()
+
+    print("Ingin menambahkan sepatu lagi? (Ya/Tidak) ", end=" ")
+    tambahdata = input (" : ")
+    if tambahdata == "Ya":
+        tambah()
+    else :
+        print("Tekan [ENTER] untuk kembali ke menu.")
+        input()
+        menu()
+
 
 
 # Menghapus barang
