@@ -1,4 +1,5 @@
 tampungan_sepatu = []
+
 # Garis
 def garis():
     print('-'*44)
@@ -9,22 +10,31 @@ def tambah():
     os.system("CLS")
     print(' TAMBAH BARANG '.center(44,'='))
     garis()
-    sepatu = input("Masukkan Nama Barang :")
-    ukuran = input("Masukkan Ukuran :")
-    stok = input("Masukkan Jumlah Stok :")
-    data = open("datasepatu.txt","a")
-    data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
-    print("\n[Barang Berhasil Ditambahkan]")
-    data.close()
-    print("\nIngin Menambahkan barang Lagi? (Ya/Tidak)", end="")
-    tmbhbarang = input(":")
-    if tmbhbarang == "y" or tmbhbarang == "Y":
-        ()
-    else :
-        print("\nTekan [Enter] untuk kembali ke menu.")
-        input()
-        menu()
-                        
+    while True:
+        sepatu = input("Masukkan Nama Barang :")
+        ukuran = input("Masukkan Ukuran :")
+        stok = input("Masukkan Jumlah Stok :")
+        data = open("datasepatu.txt","a")
+        data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
+        if sepatu in tampungan_sepatu:
+            print('Barang Berhasil Ditambahkan')
+            pass
+        elif sepatu not in tampungan_sepatu:
+            tampungan_sepatu.append(sepatu)
+            pilihan = input("Ingin Menambahkan barang Lagi? (Ya/Tidak) : ")
+            garis()
+            print("LIST BARANG".center(44,'='))
+            garis()
+            if pilihan == 'Y' :    
+                print("|","Kode".center(12, ' '),"|", "Nama Barang".center(15, ' '),"|", "Ukuran".center(15, ' '),"|", "Jumlah Stok".center(15, ' '),"|","\n")
+                for i in tampungan_sepatu: ""
+                print("+     ",(tampungan_sepatu.index(i)+1) ,"      |", (i).center(16, ' '),"+")  
+            else : 
+                print("\nTekan [Enter] untuk kembali ke menu.")
+                menu()
+                break
+
+
 # Menghapus barang
 def hapus_barang():
     garis()
@@ -43,6 +53,7 @@ def hapus_barang():
         else :
             print('Barang tidak tersedia')
             break
+
 
 # mengedit barang :
 def edit_barang() :
@@ -86,6 +97,8 @@ def tampilkan_barang():
         menu()
     else :
         menu()
+
+
 # cek barang
 def cek_barang():
     while True :
@@ -100,6 +113,8 @@ def cek_barang():
             pass
         else :
             break
+
+        
 # menu
 def menu():
     print('-'*44)
