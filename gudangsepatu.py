@@ -69,29 +69,48 @@ def edit_barang() :
 
 # Tampilkan barang
 def tampilkan_barang():
-    print("LIST BARANG".center(44,'='))
-    for i in tampungan_sepatu :
-        print("+ Kode Barang ",(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
-    exit = input('Enter untuk keluar : ')
-    if exit == ' ':
-        menu()
-    else :
-        menu()
+	import os
+	os.system("CLS")
+	print("\nDaftar sepatu yang tersedia : ")
+	data = open("datasepatu.txt","r")
+	isi = data.readlines()
+	isi.sort()
+	if len(isi) == 0:
+		print("\n[Data tidak tersedia]")
+	else :
+		i=1
+		for data_sepatu in isi:
+			pecah = data_sepatu.split(",")
+			print("\n" + str(i) + ".",end=" ")
+			print(pecah[0]+","+ pecah[1]+","+ pecah[2])
+			i += 1
+	print("\nTekan [ENTER] untuk kembali ke menu")
+	data.close()
+	input()
+	menu()
 
 # cek barang
 def cek_barang():
-    while True :
-        print('MENU CEK BARANG'.center(44,'='))
-        cek = input('Nama barang  : ')
-        if cek in tampungan_sepatu :
-            print(cek,'Tersedia!')
-        else :
-            print(cek,'Tidak tersedia!')
-        lanjut = input('Cek lagi? (y/n) :')
-        if lanjut == 'y' :
-            pass
-        else :
-            break
+	import os
+	os.system("CLS")
+	print("\n          - Pencarian Sepatu -")
+	cari = input("\nMasukkan nama sepatu yang ingin dicari : ")
+	data = open("datasepatu.txt","r")
+	isi = data.readlines()
+	isi.sort()
+	
+	for data_sepatu in isi:
+			pecah = data_sepatu.split(",")
+			if pecah[0] == cari:
+				print("\nNama Sepatu	: "+pecah[0])
+				print("Ukuran		: "+pecah[1])
+				print("Jumlah Stok	: "+pecah[2])
+				
+			
+	print("\n\nTekan [ENTER] untuk kembali ke menu")
+	data.close()
+	input()
+	menu()
 
 # menu
 def menu():
