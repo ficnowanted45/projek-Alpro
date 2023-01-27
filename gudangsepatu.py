@@ -69,14 +69,26 @@ def edit_barang() :
 
 # Tampilkan barang
 def tampilkan_barang():
+    import os
+    os.system("CLS")
     print("LIST BARANG".center(44,'='))
-    for i in tampungan_sepatu :
-        print("+ Kode Barang ",(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
-    exit = input('Enter untuk keluar : ')
-    if exit == ' ':
-        menu()
+    data = open("datasepatu.txt","r")
+    isi = data.readlines()
+    isi.sort()
+    if len(isi) == 0:
+        print("\n[Data Tidak Ditemukan]")
     else :
-        menu()
+        i = 1
+        for datasepatu in isi:
+           content = datasepatu.split(",")
+           print("\n" + str(i) + ",",end=" ")
+           print(content[0]+"|"+ content[1]+"|"+ content[2])
+           i += 1
+    print("\nTekan [ENTER] untuk kembali ke menu.")
+    data.close()
+    input()
+    menu()
+    
 
 # cek barang
 def cek_barang():
