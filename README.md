@@ -2,4 +2,4 @@
 Kelompok : 
 
 1. Rama Ferdi Christiyanto
-2. Muhammad Noer Ramadhansyah P.S.
+2. Muhammad Noer Ramadhansyah P.S.(1102220015)
