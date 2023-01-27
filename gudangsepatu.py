@@ -94,18 +94,18 @@ def tampilkan_barang():
 def cek_barang():
 	import os
 	os.system("CLS")
-	print("\n          - Pencarian Sepatu -")
-	cari = input("\nMasukkan nama sepatu yang ingin dicari : ")
+	print("\n          - Pencarian Barang -")
+	cari = input("\nMasukkan nama barang yang ingin dicari : ")
 	data = open("datasepatu.txt","r")
 	isi = data.readlines()
 	isi.sort()
 	
 	for data_sepatu in isi:
-			pecah = data_sepatu.split(",")
+			content = data_sepatu.split(",")
 			if pecah[0] == cari:
-				print("\nNama Sepatu	: "+pecah[0])
-				print("Ukuran		: "+pecah[1])
-				print("Jumlah Stok	: "+pecah[2])
+				print("\nNama Barang	: "+content[0])
+				print("Ukuran		: "+content[1])
+				print("Jumlah Stok	: "+content[2])
 				
 			
 	print("\n\nTekan [ENTER] untuk kembali ke menu")
