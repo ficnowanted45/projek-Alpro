@@ -92,18 +92,26 @@ def tampilkan_barang():
 
 # cek barang
 def cek_barang():
-    while True :
-        print('MENU CEK BARANG'.center(44,'='))
-        cek = input('Nama barang  : ')
-        if cek in tampungan_sepatu :
-            print(cek,'Tersedia!')
-        else :
-            print(cek,'Tidak tersedia!')
-        lanjut = input('Cek lagi? (y/n) :')
-        if lanjut == 'y' :
-            pass
-        else :
-            break
+	import os
+	os.system("CLS")
+	print("\n          - Pencarian Sepatu -")
+	cari = input("\nMasukkan nama sepatu yang ingin dicari : ")
+	data = open("datasepatu.txt","r")
+	isi = data.readlines()
+	isi.sort()
+	
+	for data_sepatu in isi:
+			pecah = data_sepatu.split(",")
+			if pecah[0] == cari:
+				print("\nNama Sepatu	: "+pecah[0])
+				print("Ukuran		: "+pecah[1])
+				print("Jumlah Stok	: "+pecah[2])
+				
+			
+	print("\n\nTekan [ENTER] untuk kembali ke menu")
+	data.close()
+	input()
+	menu()
 
 # menu
 def menu():
