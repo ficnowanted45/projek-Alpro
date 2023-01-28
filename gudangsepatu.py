@@ -1,5 +1,3 @@
-tampungan_sepatu = []
-
 # Tambah barang
 def tambah() :
     import os
@@ -50,22 +48,40 @@ def hapus_barang() :
 
 # mengedit barang :
 def edit_barang() :
-    print("LIST BARANG".center(44,'='))
-    for i in "" :
-        print("+ Kode Barang ",(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
-    while True :
-        print('MENU EDIT BARANG'.center(44,'='))
-        caribarang = str(input('Masukkan nama barang yang mau di edit : '))
-        if caribarang in tampungan_sepatu :
-            ubah_ke = input('Ubah ke : ')
-            (indexcaribarang) = ubah_ke
-            for i in tampungan_sepatu :
-                print("+ Kode Barang ".center(28," "),(tampungan_sepatu.index(i)+1) ,"|", (i).center(15, ' '),"+")
-            print("\n",'-'*50)
-            break
-        else :
-            print('barang tidak ditemukan!')
-            break
+	import os
+	os.system("CLS")
+	print("\n            - Ubah Data Sepatu -")
+	baru = input("\nMasukkan nama sepatu yang ingin diperbarui : ")
+	print("\nMasukkan data baru")
+	namabaru = input("Nama Sepatu	: ")
+	ukuranbaru = input("Ukuran	: ")
+	stokbaru = input("Jumlah Stok	: ")
+	data = open("datasepatu.txt", "r")
+	isi = data.readlines()
+	
+	i=0
+	for data_sepatu in isi:
+			content = data_sepatu.split(",")
+			if  content[0] == baru:
+				content[0] = namabaru
+				content[1] = ukuranbaru
+				content[2] = stokbaru+"\n"
+				xg = ",".join(content)
+				isi[i]=xg
+			i += 1
+			
+	data = open("datasepatu.txt","w")
+	isi = data.writelines(isi)
+	print("\n[Data Sepatu Berhasil Diubah]")
+	data.close()
+	print("\nIngin mengubah data sepatu lagi? (Ya/Tidak)", end=" ")
+	ubahdata = input(" : ")
+	if ubahdata == "y" or ubahdata == "Y":
+		edit_barang()
+	else :
+		print("\nTekan [ENTER] untuk kembali ke menu")
+		input()
+		menu()
 
 # Tampilkan barang
 def tampilkan_barang():
@@ -133,5 +149,12 @@ def menu():
     elif pilihan == "3" or pilihan == "EDIT BARANG":
         edit_barang()
     elif pilihan == "4" or pilihan == "CEK BARANG":
-        tampilkan_barang      
+        tampilkan_barang
+    elif pilihan == "5" or pilihan == "CEK NAMA BARANG":
+        cek_barang()
+    elif pilihan == '6':
+            A = False
+            exit = input("\nTekan [ENTER] untuk keluar.")
+            print(' TERIMAKASIH '.center(50,"+"))
+                                        
 menu()
