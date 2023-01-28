@@ -137,7 +137,7 @@ def menu():
     print("1. Tambah Barang")
     print("2. Hapus Barang")
     print("3. Edit Barang")
-    print("4. Tampilankan Barang")
+    print("4. Tampilkan Barang")
     print("5. Cek nama barang")
     print("6. Keluar\n")
     print("-"*50)
