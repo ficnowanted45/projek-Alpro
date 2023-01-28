@@ -98,7 +98,7 @@ def tampilkan_barang():
         for datasepatu in isi:
            content = datasepatu.split(",")
            print("\n" + str(i) + ",",end=" ")
-           print(content[0]+"|"+ content[1]+"|"+ content[2])
+           print(" Nama Barang : "+ content[0]+"," +" Ukuran Sepatu : "+ content[1] +"," +" Stok Sepatu : " + content[2])
            i += 1
     print("\nTekan [ENTER] untuk kembali ke menu.")
     data.close()
@@ -137,7 +137,7 @@ def menu():
     print("1. Tambah Barang")
     print("2. Hapus Barang")
     print("3. Edit Barang")
-    print("4. Cek Barang")
+    print("4. Tampilankan Barang")
     print("5. Cek nama barang")
     print("6. Keluar\n")
     print("-"*50)
@@ -148,8 +148,8 @@ def menu():
         hapus_barang()
     elif pilihan == "3" or pilihan == "EDIT BARANG":
         edit_barang()
-    elif pilihan == "4" or pilihan == "CEK BARANG":
-        tampilkan_barang
+    elif pilihan == "4" or pilihan == "Tampilan Barang":
+        tampilkan_barang()
     elif pilihan == "5" or pilihan == "CEK NAMA BARANG":
         cek_barang()
     elif pilihan == '6':
