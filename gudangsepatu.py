@@ -11,7 +11,7 @@ def tambah() :
     stok = input("Masukkan Jumlah Stok : ")
     data = open("datasepatu.txt","a")
     data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
-    print("/n[Data Sepatu Berhasil Ditambahkan]")
+    print("\n[Data Sepatu Berhasil Ditambahkan]")
     data.close()
 
     print("\nIngin menambahkan sepatu lagi? (Ya/Tidak) ", end=" ")
@@ -28,7 +28,7 @@ def hapus_barang() :
 	import os
 	os.system("CLS")
 	print("\n        - Hapus Data Sepatu -")
-	data = open("datasepatu.txt")
+	data = open("datasepatu.txt", "r")
 	output = []
 	str = input("\nMasukkan nama sepatu yang ingin dihapus : ")
 	for hapus in data:
@@ -102,7 +102,7 @@ def cek_barang():
 	
 	for data_sepatu in isi:
 			content = data_sepatu.split(",")
-			if pecah[0] == cari:
+			if content[0] == cari:
 				print("\nNama Barang	: "+content[0])
 				print("Ukuran		: "+content[1])
 				print("Jumlah Stok	: "+content[2])
@@ -115,18 +115,17 @@ def cek_barang():
 
 # menu
 def menu():
-    print('-'*44)
-    print("PROGRAM BARANG".center(44,'='))
-    print('-'*44)
-    print("|",'1. Tambah Barang'.center(40, ' '),"|")
-    print("|",'2. Hapus Barang'.center(40, ' '),"|")
-    print("|",'3. Edit Barang'.center(40, ' '),"|")
-    print("|",'4. Cek Barang'.center(40, ' '),"|")
-    print("|",'5. Cek nama barang'.center(40, ' '),"|")
-    print("|",'6. Keluar'.center(40, ' '),"|\n")
-    print('-'*44)
+    print("-"*50)
+    print("PROGRAM BARANG".center(50,'='))
+    print("-"*50 + "\n")
+    print("1. Tambah Barang")
+    print("2. Hapus Barang")
+    print("3. Edit Barang")
+    print("4. Cek Barang")
+    print("5. Cek nama barang")
+    print("6. Keluar\n")
+    print("-"*50)
     pilihan = input("Pilih menu \t: ").upper()
-    print('-'*44)
     if pilihan == "1" or pilihan == "TAMBAH BARANG":
         tambah()
     elif pilihan == "2" or pilihan == "HAPUS BARANG":
@@ -134,4 +133,5 @@ def menu():
     elif pilihan == "3" or pilihan == "EDIT BARANG":
         edit_barang()
     elif pilihan == "4" or pilihan == "CEK BARANG":
-         tampilkan_barang
+        tampilkan_barang      
+menu()
