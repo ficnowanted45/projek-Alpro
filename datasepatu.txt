@@ -1,2 +1,3 @@
-Nike,44,3
-Puma,39,1
+Vans,42,3
+Converse,31,3
+Yeezy,39,1

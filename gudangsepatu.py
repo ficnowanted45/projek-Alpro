@@ -14,7 +14,7 @@ def tambah() :
 
     print("\nIngin menambahkan sepatu lagi? (Ya/Tidak) ", end=" ")
     tambahdata = input (" : ")
-    if tambahdata == "y"or tambahdata == "Y":
+    if tambahdata == "y" or tambahdata == "Y":
         tambah()
     else :
         print("\nTekan [ENTER] untuk kembali ke menu.")
@@ -87,7 +87,7 @@ def edit_barang() :
 def tampilkan_barang():
     import os
     os.system("CLS")
-    print("LIST BARANG".center(44,'='))
+    print("LIST BARANG".center(44,'=') + "\n")
     data = open("datasepatu.txt","r")
     isi = data.readlines()
     isi.sort()
@@ -97,15 +97,16 @@ def tampilkan_barang():
         i = 1
         for datasepatu in isi:
            content = datasepatu.split(",")
-           print("\n" + str(i) + ",",end=" ")
-           print(" Nama Barang : "+ content[0]+"," +" Ukuran Sepatu : "+ content[1] +"," +" Stok Sepatu : " + content[2])
+           print(str(i) + ".",end=" ")
+           print("Nama Barang : "+ content[0])
+           print("   Ukuran      : "+ content[1])
+           print("   Stok Sepatu : " + content[2])
            i += 1
     print("\nTekan [ENTER] untuk kembali ke menu.")
     data.close()
     input()
     menu()
     
-
 # cek barang
 def cek_barang():
 	import os
@@ -123,7 +124,6 @@ def cek_barang():
 				print("Ukuran		: "+content[1])
 				print("Jumlah Stok	: "+content[2])
 				
-			
 	print("\n\nTekan [ENTER] untuk kembali ke menu")
 	data.close()
 	input()
@@ -155,6 +155,6 @@ def menu():
     elif pilihan == '6':
             A = False
             exit = input("\nTekan [ENTER] untuk keluar.")
-            print(' TERIMAKASIH '.center(50,"+"))
+            print(' TERIMAKASIH '.center(50,"="))
                                         
 menu()
