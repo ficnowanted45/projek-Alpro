@@ -1,3 +1,6 @@
 Vans,42,3
 Converse,31,3
 Yeezy,39,1
+Buaya,3,3
+Kucing,5,2
+Ayam,1,2

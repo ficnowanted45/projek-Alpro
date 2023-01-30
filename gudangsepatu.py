@@ -5,7 +5,7 @@ def tambah() :
     print("\n   - Tambah Sepatu -")
     print("\nMasukkan data sepatu baru")
     sepatu = input("Masukkan Nama Sepatu : ")
-    ukuran = input("Masukkan Ukuran : ")
+    ukuran = input("Masukkan Ukuran      : ")
     stok = input("Masukkan Jumlah Stok : ")
     data = open("datasepatu.txt","a")
     data.writelines([sepatu+","+ukuran+","+stok+ "\n"])
@@ -25,10 +25,10 @@ def tambah() :
 def hapus_barang() :
 	import os
 	os.system("CLS")
-	print("\n        - Hapus Data Sepatu -")
+	print("\n             - Hapus Data Sepatu -")
 	data = open("datasepatu.txt", "r")
 	output = []
-	str = input("\nMasukkan nama sepatu yang ingin dihapus : ")
+	str = input("\nMasukkan nama sepatu yang ingin dihapus       : ")
 	for hapus in data:
 		if not hapus.startswith(str):
 			output.append(hapus)
@@ -83,15 +83,15 @@ def edit_barang() :
 		input()
 		menu()
 
-# Tampilkan barang
-def tampilkan_barang():
+# Daftar barang
+def daftar_barang():
     import os
     os.system("CLS")
-    print("LIST BARANG".center(44,'=') + "\n")
+    print("List Barang Yang Tersedia".center(44,'=') + "\n")
     data = open("datasepatu.txt","r")
     isi = data.readlines()
     isi.sort()
-    if len(isi) == 0:
+    if len(isi) == 1:
         print("\n[Data Tidak Ditemukan]")
     else :
         i = 1
@@ -137,8 +137,8 @@ def menu():
     print("1. Tambah Barang")
     print("2. Hapus Barang")
     print("3. Edit Barang")
-    print("4. Tampilkan Barang")
-    print("5. Cek nama barang")
+    print("4. Daftar Barang")
+    print("5. Cek Nama Barang")
     print("6. Keluar\n")
     print("-"*50)
     pilihan = input("Pilih menu \t: ").upper()
@@ -148,8 +148,8 @@ def menu():
         hapus_barang()
     elif pilihan == "3" or pilihan == "EDIT BARANG":
         edit_barang()
-    elif pilihan == "4" or pilihan == "Tampilan Barang":
-        tampilkan_barang()
+    elif pilihan == "4" or pilihan == "DAFTAR Barang":
+        daftar_barang()
     elif pilihan == "5" or pilihan == "CEK NAMA BARANG":
         cek_barang()
     elif pilihan == '6':
