@@ -40,7 +40,7 @@ def hapus_barang() :
 	print("\nIngin menghapus data sepatu lagi? (Ya/Tidak)", end=" ")
 	hapusdata = input(" : ")
 	if hapusdata == "y" or hapusdata == "Y":
-		hapusdata()
+		hapus_barang()
 	else :
 		print("\nTekan [ENTER] untuk kembali ke menu")
 		input()
@@ -91,8 +91,8 @@ def daftar_barang():
     data = open("datasepatu.txt","r")
     isi = data.readlines()
     isi.sort()
-    if len(isi) == 1:
-        print("\n[Data Tidak Ditemukan]")
+    if len(isi) == 0:
+        print("\n[Barang Tidak Tersedia]")
     else :
         i = 1
         for datasepatu in isi:
@@ -123,7 +123,7 @@ def cek_barang():
 				print("\nNama Barang	: "+content[0])
 				print("Ukuran		: "+content[1])
 				print("Jumlah Stok	: "+content[2])
-				
+        			
 	print("\n\nTekan [ENTER] untuk kembali ke menu")
 	data.close()
 	input()

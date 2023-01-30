@@ -1,6 +1,7 @@
-Vans,42,3
-Converse,31,3
-Yeezy,39,1
-Buaya,3,3
-Kucing,5,2
-Ayam,1,2
+Nike,39,2
+Converse,41,2
+Puma,38,4
+Compass,30,5
+Yeezy,35,100
+Pantofel,37,1
+Adidas,44,4
